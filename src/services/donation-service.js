@@ -5,7 +5,7 @@ import { latestDonation, user } from "../stores";
 
 export const donationService = {
 	// baseUrl: "http://localhost:4000",
-	baseUrl: "https://hapi-10.onrender.com"
+	baseUrl: "https://hapi-10.onrender.com",
 
 	async login(email, password) {
 		try {

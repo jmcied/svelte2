@@ -1,6 +1,6 @@
 <div class="box has-text-centered columns m-2">
 	<a href="/donate" class="column">
-		<i class="fas fa-hand-holding-usd fa-3x" style="color:rgb(153, 196, 74)" />
+		<i class="fas fa-map-pin fa-3x" style="color:rgb(153, 196, 74)" />
 	</a>
 	<a href="/report" class="column ">
 		<i class="fas fa-th-list fa-3x" style="color:rgb(63, 122, 139)" />
