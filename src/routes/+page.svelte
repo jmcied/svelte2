@@ -9,10 +9,10 @@
 
 <div class="columns is-vcentered content">
 	<div class="column has-text-centered">
-		<img width="300" src="/homer.png" alt="homer" />
+		<img width="300" src="/walking-forest.jpg" alt="walk forest" />
 	</div>
 	<div class="column">
-		<h1 class="title">Help Me Run Springfield</h1>
-		<p>Donate what you can now - No Bitcoins accepted!</p>
+		<h1 class="title">Track your Favourite Walks</h1>
+		<p>Share your favourite places!</p>
 	</div>
 </div>

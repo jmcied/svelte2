@@ -16,6 +16,6 @@
 		</div>
 	</div>
 	<div class="column has-text-centered">
-		<img alt="homer" src="/homer3.png" width="300" />
+		<img alt="walk 2" src="/walking2.jpg" width="300" />
 	</div>
 </div>

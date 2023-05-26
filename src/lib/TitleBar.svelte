@@ -6,14 +6,14 @@
 
 <div class="box has-text-centered columns m-2">
 	<div class="column">
-		<img src="/homer.png" width="60" alt="img" />
+		<img src="/walking1.jpg" width="100" alt="img" />
 	</div>
 	<div class="column">
 		<div class="title is-5">{title}</div>
 		<div class="subtitle is-5">{subTitle}</div>
 	</div>
 	<div class="column">
-		<i class="fas fa-donate fa-3x" style="color:rgb(95, 96, 173)" />
+		<i class="fas fa-street-view fa-3x" style="color:rgb(95, 96, 173)" />
 		{#if $user.email}
 			<div class="is-size-7">{$user.email}</div>
 		{:else}
