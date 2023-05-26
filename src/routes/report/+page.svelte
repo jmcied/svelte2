@@ -1,7 +1,7 @@
 <script>
 	import Header from "$lib/Header.svelte";
 	import MainNavigator from "$lib/MainNavigator.svelte";
-	import DonationList from "$lib/DonationList.svelte";
+	import PlaceList from "$lib/PlaceList.svelte";
 </script>
 
 <Header>
@@ -14,6 +14,6 @@
 	</div>
 	<div class="column box has-text-centered">
 		<h1 class="title is-4">Places to date</h1>
-		<DonationList />
+		<PlaceList />
 	</div>
 </div>

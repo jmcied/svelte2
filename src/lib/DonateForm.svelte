@@ -3,14 +3,14 @@
 
 	import { onMount } from "svelte";
 	import Coordinates from "./Coordinates.svelte";
-	import { donationService } from "../services/donation-service";
+	import { placeService } from "../services/place-service";
 
 	let title = "";
 	let lat = 52.160858;
 	let lng = -7.15242;
 
-	let candidateList = [];
-	let selectedCandidate = "";
+	let countyList = [];
+	let selectedCounty = "";
 
 	let paymentMethods = ["Easy", "Medium", "Hard"];
 	let selectedMethod = "";
@@ -18,26 +18,26 @@
 	let message = "Place walk";
 
 	onMount(async () => {
-		candidateList = await donationService.getCandidates();
+		countyList = await placeService.getCountys();
 	});
 
 	async function donate() {
-		if (selectedCandidate && title && selectedMethod) {
-			const candidateNames = selectedCandidate.split(",");
-			const candidate = candidateList.find((candidate) => candidate.lastName == candidateNames[0] && candidate.firstName == candidateNames[1]);
-			const donation = {
+		if (selectedCounty && title && selectedMethod) {
+			const countyNames = selectedCounty.split(",");
+			const county = countyList.find((county) => county.lastName == countyNames[0] && county.firstName == countyNames[1]);
+			const place = {
 				title: title,
 				method: selectedMethod,
-				candidate: candidate._id,
+				county: county._id,
 				lat: lat,
 				lng: lng
 			};
-			const success = await donationService.donate(donation);
+			const success = await placeService.donate(place);
 			if (!success) {
 				message = "Placemark not completed - some error occurred";
 				return;
 			}
-			message = `Thanks! You placed ${title} to ${candidate.firstName} ${candidate.lastName}`;
+			message = `Thanks! You placed ${title} in ${county.firstName} ${county.lastName}`;
 		} else {
 			message = "Please select title, difficulty and county";
 		}
@@ -58,9 +58,9 @@
 	</div>
 	<div class="field">
 		<div class="select">
-			<select bind:value={selectedCandidate}>
-				{#each candidateList as candidate}
-					<option>{candidate.lastName},{candidate.firstName}</option>
+			<select bind:value={selectedCounty}>
+				{#each countyList as county}
+					<option>{county.lastName},{county.firstName}</option>
 				{/each}
 			</select>
 		</div>

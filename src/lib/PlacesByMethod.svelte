@@ -2,7 +2,7 @@
     import Chart from "svelte-frappe-charts";
     import { onMount } from "svelte";
 
-    import { donationService } from "../services/donation-service";
+    import { placeService } from "../services/place-service";
 
     let totalByDifficulty = {
         labels: ["Easy", "Medium", "Hard"],
@@ -13,21 +13,21 @@
         ]
     };
 
-    function populateByDifficulty(donationList) {
-        donationList.forEach((donation) => {
-            if (donation.difficulty == "Easy") {
+    function populateByDifficulty(placeList) {
+        placeList.forEach((place) => {
+            if (place.difficulty == "Easy") {
                 totalByDifficulty.datasets[0].values[0] ++;
-            } else if (donation.difficulty == "Medium") {
+            } else if (place.difficulty == "Medium") {
                 totalByDifficulty.datasets[0].values[1] ++;
-            }    else if (donation.difficulty == "Hard") {
+            }    else if (place.difficulty == "Hard") {
                 totalByDifficulty.datasets[0].values[2] ++;
             }
         });
     }
 
     async function refreshChart() {
-        let donationList = await donationService.getDonations();
-        populateByDifficulty(donationList);
+        let placeList = await placeService.getPlaces();
+        populateByDifficulty(placeList);
     }
 
     onMount(async () => {

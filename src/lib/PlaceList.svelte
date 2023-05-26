@@ -1,13 +1,13 @@
 <script>
 	import { onMount } from "svelte";
-	import { donationService } from "../services/donation-service";
+	import { placeService } from "../services/place-service";
 
 	/**
 	 * @type {any[]}
 	 */
-	let donationList = [];
+	let placeList = [];
 	onMount(async () => {
-		donationList = await donationService.getDonations();
+		placeList = await placeService.getPlaces();
 	});
 </script>
 
@@ -19,19 +19,19 @@
 		<th>Added by</th>
 	</thead>
 	<tbody>
-		{#each donationList as donation}
+		{#each placeList as place}
 			<tr>
 				<td>
-					{donation.title}
+					{place.title}
 				</td>
 				<td>
-					{donation.difficulty}
+					{place.difficulty}
 				</td>
 				<td>
-					{donation.candidate.firstName}, {donation.candidate.lastName}
+					{place.county.firstName}, {place.county.lastName}
 				</td>
 				<td>
-					{donation.donor.firstName}, {donation.donor.lastName}
+					{place.donor.firstName}, {place.donor.lastName}
 				</td>
 			</tr>
 		{/each}

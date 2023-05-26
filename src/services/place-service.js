@@ -1,9 +1,9 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 import axios from "axios";
-import { latestDonation, user } from "../stores";
+import { latestPlace, user } from "../stores";
 
-export const donationService = {
+export const placeService = {
 	// baseUrl: "http://localhost:4000",
 	baseUrl: "https://hapi-10.onrender.com",
 
@@ -16,7 +16,7 @@ export const donationService = {
 					email: email,
 					token: response.data.token
 				});
-				localStorage.donation = JSON.stringify({ email: email, token: response.data.token });
+				localStorage.place = JSON.stringify({ email: email, token: response.data.token });
 				return true;
 			}
 			return false;
@@ -32,7 +32,7 @@ export const donationService = {
 			token: ""
 		});
 		axios.defaults.headers.common["Authorization"] = "";
-		localStorage.removeItem("donation");
+		localStorage.removeItem("place");
 	},
 
 	async signup(firstName, lastName, email, password) {
@@ -51,9 +51,9 @@ export const donationService = {
 	},
 
 	reload() {
-		const donationCredentials = localStorage.donation;
-		if (donationCredentials) {
-			const savedUser = JSON.parse(donationCredentials);
+		const placeCredentials = localStorage.place;
+		if (placeCredentials) {
+			const savedUser = JSON.parse(placeCredentials);
 			user.set({
 				email: savedUser.email,
 				token: savedUser.token
@@ -62,37 +62,37 @@ export const donationService = {
 		}
 	},
 
-	async donate(donation) {
+	async donate(place) {
 		try {
-			const response = await axios.post(this.baseUrl + "/api/candidates/" + donation.candidate + "/donations", donation);
-			latestDonation.set(donation);
+			const response = await axios.post(this.baseUrl + "/api/countys/" + place.county + "/places", place);
+			latestPlace.set(place);
 			return response.status == 200;
 		} catch (error) {
 			return false;
 		}
 	},
 
-	async getCandidates() {
+	async getCountys() {
 		try {
-			const response = await axios.get(this.baseUrl + "/api/candidates");
+			const response = await axios.get(this.baseUrl + "/api/countys");
 			return response.data;
 		} catch (error) {
 			return [];
 		}
 	},
 
-	async getCandidate(id) {
+	async getCounty(id) {
 		try {
-			const response = await axios.get(this.baseUrl + "/api/candidates/" + id);
+			const response = await axios.get(this.baseUrl + "/api/countys/" + id);
 			return response.data;
 		} catch (error) {
 			return [];
 		}
 	},
 
-	async getDonations() {
+	async getPlaces() {
 		try {
-			const response = await axios.get(this.baseUrl + "/api/donations");
+			const response = await axios.get(this.baseUrl + "/api/places");
 			return response.data;
 		} catch (error) {
 			return [];
@@ -101,9 +101,9 @@ export const donationService = {
 
 	checkPageRefresh() {
 		if (!axios.defaults.headers.common["Authorization"]) {
-			const donationCredentials = localStorage.donation;
-			if (donationCredentials) {
-				const savedUser = JSON.parse(donationCredentials);
+			const placeCredentials = localStorage.place;
+			if (placeCredentials) {
+				const savedUser = JSON.parse(placeCredentials);
 				user.set({
 					email: savedUser.email,
 					token: savedUser.token,

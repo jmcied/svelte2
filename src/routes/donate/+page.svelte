@@ -2,8 +2,8 @@
 	import Header from "$lib/Header.svelte";
 	import DonateForm from "$lib/DonateForm.svelte";
 	import MainNavigator from "$lib/MainNavigator.svelte";
-	import DonationMap from "$lib/DonationMap.svelte";
-	import DonationsByCandidate from "$lib/DonationsByCandidate.svelte";
+	import PlaceMap from "$lib/PlaceMap.svelte";
+	import PlacesByCounty from "$lib/PlacesByCounty.svelte";
 </script>
 
 <Header>
@@ -12,8 +12,8 @@
 
 <div class="columns is-vcentered">
 	<div class="column has-text-centered">
-		<!-- <DonationMap /> -->
-		<DonationsByCandidate />
+		<!-- <PlaceMap /> -->
+		<PlacesByCounty />
 	</div>
 	<div class="column box has-text-centered">
 		<h1 class="title is-4">Add Places!</h1>

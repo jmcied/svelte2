@@ -5,4 +5,4 @@ export const user = writable({
 	token: ""
 });
 
-export const latestDonation = writable(null);
+export const latestPlace = writable(null);
