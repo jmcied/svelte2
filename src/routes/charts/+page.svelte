@@ -11,7 +11,7 @@
 
 <div class="columns">
     <div class="column box has-text-centered">
-        <h1 class="title is-4">Donations to date</h1>
+        <h1 class="title is-4">Walks Added</h1>
         <DonationsByDifficulty />
     </div>
     <div class="column has-text-centered">
