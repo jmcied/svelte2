@@ -15,7 +15,7 @@
 	let paymentMethods = ["Easy", "Medium", "Hard"];
 	let selectedMethod = "";
 
-	let message = "Please donate";
+	let message = "Place walk";
 
 	onMount(async () => {
 		candidateList = await donationService.getCandidates();
@@ -34,19 +34,19 @@
 			};
 			const success = await donationService.donate(donation);
 			if (!success) {
-				message = "Donation not completed - some error occurred";
+				message = "Placemark not completed - some error occurred";
 				return;
 			}
-			message = `Thanks! You donated ${title} to ${candidate.firstName} ${candidate.lastName}`;
+			message = `Thanks! You placed ${title} to ${candidate.firstName} ${candidate.lastName}`;
 		} else {
-			message = "Please select title, method and candidate";
+			message = "Please select title, difficulty and county";
 		}
 	}
 </script>
 
 <form on:submit|preventDefault={donate}>
 	<div class="field">
-		<label class="label" for="title">Enter title</label>
+		<label class="label" for="title">Enter Walk Details</label>
 		<input bind:value={title} class="input" placeholder="title" name="title" type="text" />
 	</div>
 	<div class="field">
@@ -67,7 +67,7 @@
 	</div>
 	<div class="field">
 		<div class="control">
-			<button class="button is-link is-light">Donate</button>
+			<button class="button is-link is-light">Add</button>
 		</div>
 	</div>
 	<div class="box">

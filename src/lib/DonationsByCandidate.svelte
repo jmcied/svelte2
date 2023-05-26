@@ -22,7 +22,7 @@
     function populateByCandidate(donationList, candidates) {
         totalByCandidate.labels = [];
         candidates.forEach((candidate) => {
-            totalByCandidate.labels.push(`${candidate.lastName}, ${candidate.firstName}`);
+            totalByCandidate.labels.push(`${candidate.firstName}, ${candidate.lastName}`);
             totalByCandidate.datasets[0].values.push(0);
         });
         candidates.forEach((candidate, i) => {
@@ -46,5 +46,5 @@
     });
 </script>
 
-<h1 class="title is-4">By Candidate</h1>
+<h1 class="title is-4">Places By County</h1>
 <Chart data={totalByCandidate} type="bar" />

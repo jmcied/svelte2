@@ -16,7 +16,7 @@
 		<DonationsByCandidate />
 	</div>
 	<div class="column box has-text-centered">
-		<h1 class="title is-4">Give Generously!</h1>
+		<h1 class="title is-4">Add Places!</h1>
 		<DonateForm />
 	</div>
 </div>
