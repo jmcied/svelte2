@@ -15,8 +15,8 @@
 	<thead>
 		<th>Title</th>
 		<th>Difficulty</th>
-		<th>Candidate</th>
-		<th>Donor</th>
+		<th>County</th>
+		<th>Added by</th>
 	</thead>
 	<tbody>
 		{#each donationList as donation}
@@ -28,10 +28,10 @@
 					{donation.difficulty}
 				</td>
 				<td>
-					{donation.candidate.lastName}, {donation.candidate.firstName}
+					{donation.candidate.firstName}, {donation.candidate.lastName}
 				</td>
 				<td>
-					{donation.donor.lastName}, {donation.donor.firstName}
+					{donation.donor.firstName}, {donation.donor.lastName}
 				</td>
 			</tr>
 		{/each}
