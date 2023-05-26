@@ -65,6 +65,9 @@
 			</select>
 		</div>
 	</div>
+
+	<Coordinates bind:lat bind:lng />
+
 	<div class="field">
 		<div class="control">
 			<button class="button is-link is-light">Add</button>
@@ -73,5 +76,4 @@
 	<div class="box">
 		{message}
 	</div>
-	<Coordinates bind:lat bind:lng />
 </form>

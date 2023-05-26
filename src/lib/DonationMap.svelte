@@ -19,6 +19,7 @@
 		map.showZoomControl();
 		map.addLayerGroup("Donations");
 		map.showLayerControl();
+		
 		const donations = await donationService.getDonations();
 		donations.forEach((donation) => {
 			addDonationMarker(map, donation);
