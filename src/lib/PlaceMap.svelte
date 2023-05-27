@@ -17,20 +17,35 @@
 	onMount(async () => {
 		map = new LeafletMap("place-map", mapConfig);
 		map.showZoomControl();
-		map.addLayerGroup("Places");
+		map.addLayerGroup("All Walks");
+		map.addLayerGroup("Easy");
+	//	map.addLayerGroup("Moderate");
+	//	map.addLayerGroup("Hard");
 		map.showLayerControl();
 		
 		const places = await placeService.getPlaces();
 		places.forEach((place) => {
-			addPlaceMarker(map, place);
+			addPlaceMarker(map, place);							
 		});
 	});
 
 	function addPlaceMarker(map, place) {
-		const placeStr = `${place.title}, ${place.county.firstName}, ${place.county.lastName}`;
-		map.addMarker({ lat: place.lat, lng: place.lng }, placeStr, "Places");
-		map.moveTo(8, { lat: place.lat, lng: place.lng });
-	}
+		const allPlaceStr = `${place.title}, ${place.county.firstName}, ${place.difficulty}`;
+		map.addMarker({ lat: place.lat, lng: place.lng }, allPlaceStr, "All Walks");
+		
+		if (place.difficulty === "Easy") {
+			const easyPlaceStr = `${place.title} `;
+			map.addMarker({ lat: place.lat, lng: place.lng }, easyPlaceStr, "Easy Walks");
+		}
+	/*	if (place.difficulty === "Medium") {
+			const mediumPlaceStr = `${place.title}, ${place.county.firstName} `;
+			map.addMarker({ lat: place.lat, lng: place.lng }, mediumPlaceStr, "Moderate Walks")
+		}
+		if (place.difficulty === "Hard") {
+			const hardPlaceStr = `${place.title}, ${place.county.firstName} `;
+			map.addMarker({ lat: place.lat, lng: place.lng }, hardPlaceStr, "Hard Walks")
+		};		
+	*/	};
 
 	latestPlace.subscribe(async (place) => {
 		if (place && map) {

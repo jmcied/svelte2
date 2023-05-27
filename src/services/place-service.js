@@ -113,4 +113,11 @@ export const placeService = {
 			}
 		}
 	},
+
+	async updatePlace(updatedPlace) {
+		const place = await place.findOne({ _id: updatedPlace._id });
+		place.title = updatedPlace.title;
+		place.img = updatedPlace.img;
+		await place.save();
+	  },
 };
