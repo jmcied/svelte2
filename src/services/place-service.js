@@ -62,7 +62,7 @@ export const placeService = {
 		}
 	},
 
-	async donate(place) {
+	async addPlace(place) {
 		try {
 			const response = await axios.post(this.baseUrl + "/api/countys/" + place.county + "/places", place);
 			latestPlace.set(place);

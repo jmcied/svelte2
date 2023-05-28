@@ -11,7 +11,7 @@
 		console.log(`attemting to log in email: ${email} with password: ${password}`);
 		let success = await placeService.login(email, password);
 		if (success) {
-			goto("/donate");
+			goto("/addPlace");
 		} else {
 			email = "";
 			password = "";

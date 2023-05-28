@@ -1,5 +1,5 @@
 <div class="box has-text-centered columns m-2">
-	<a href="/donate" class="column">
+	<a href="/addPlace" class="column">
 		<i class="fas fa-map-pin fa-3x" style="color:rgb(153, 196, 74)" />
 	</a>
 	<a href="/report" class="column ">

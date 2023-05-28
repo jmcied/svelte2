@@ -21,7 +21,7 @@
 		countyList = await placeService.getCountys();
 	});
 
-	async function donate() {
+	async function addPlace() {
 		if (selectedCounty && title && selectedMethod) {
 			const countyNames = selectedCounty.split(",");
 			const county = countyList.find((county) => county.lastName == countyNames[0] && county.firstName == countyNames[1]);
@@ -32,7 +32,7 @@
 				lat: lat,
 				lng: lng
 			};
-			const success = await placeService.donate(place);
+			const success = await placeService.addPlace(place);
 			if (!success) {
 				message = "Placemark not completed - some error occurred";
 				return;
@@ -44,7 +44,7 @@
 	}
 </script>
 
-<form on:submit|preventDefault={donate}>
+<form on:submit|preventDefault={addPlace}>
 	<div class="field">
 		<label class="label" for="title">Enter Walk Details</label>
 		<input bind:value={title} class="input" placeholder="title" name="title" type="text" />
