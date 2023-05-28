@@ -19,7 +19,7 @@
 		map.showZoomControl();
 		map.addLayerGroup("All Walks");
 		map.addLayerGroup("Easy");
-		map.addLayerGroup("Moderate");
+	//	map.addLayerGroup("Moderate");
 	//	map.addLayerGroup("Hard");
 		map.showLayerControl();
 		
@@ -34,11 +34,11 @@
 		map.addMarker({ lat: place.lat, lng: place.lng }, allPlaceStr, "All Walks");
 		}
 		
-	//	if (place.difficulty === "Easy") {			
-	//		const easyPlaceStr = `${place.title} - ${place.difficulty} `;
-	//		map.addMarker({ lat: place.lat, lng: place.lng }, easyPlaceStr, "Easy Walks");
-	//	}
-		if (place.difficulty === "Medium") {
+		if (place.difficulty === "Easy") {			
+			const easyPlaceStr = `${place.title} - ${place.difficulty} `;
+			map.addMarker({ lat: place.lat, lng: place.lng }, easyPlaceStr, "Easy Walks");
+		}
+	/*	if (place.difficulty === "Medium") {
 			const mediumPlaceStr = `${place.title}, ${place.county.firstName} `;
 			map.addMarker({ lat: place.lat, lng: place.lng }, mediumPlaceStr, "Moderate Walks")
 		}
