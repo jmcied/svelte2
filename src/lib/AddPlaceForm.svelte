@@ -6,8 +6,8 @@
 	import { placeService } from "../services/place-service";
 
 	let title = "";
-	let lat = 52.160858;
-	let lng = -7.15242;
+	let lat = 52.32125;
+	let lng = -6.93375;
 
 	let countyList = [];
 	let selectedCounty = "";
