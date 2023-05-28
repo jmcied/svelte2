@@ -5,7 +5,7 @@ import { latestPlace, user } from "../stores";
 
 export const placeService = {
 	// baseUrl: "http://localhost:4000",
-	baseUrl: "https://hapi-10.onrender.com",
+	baseUrl: "https://placemark-hapi-6kty.onrender.com",
 
 	async login(email, password) {
 		try {
